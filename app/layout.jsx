@@ -7,7 +7,8 @@ export const metadata = {
   description: 'Twitter but utopia',
 }
 
-import Providers from './providers'
+import Provider from '../components/Provider'
+import CProvider from './cProvider'
 
 import Nav from '@/components/Nav'
 
@@ -16,12 +17,12 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className='inter-font main'>
         <div className='gradient'></div>
-        
-          <Providers>
-            <Nav/>
-            {children}
-          </Providers>
-
+          <CProvider>
+            <Provider>
+              <Nav/>
+              {children}
+            </Provider>
+          </CProvider>
       </body>
     </html>
   )
