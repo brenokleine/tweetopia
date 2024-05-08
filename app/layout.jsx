@@ -17,12 +17,10 @@ export default function RootLayout({ children }) {
       <body className='inter-font main'>
         <div className='gradient'></div>
         
-        <div className='z-10'>
           <Providers>
             <Nav/>
             {children}
           </Providers>
-        </div>
 
       </body>
     </html>

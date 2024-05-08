@@ -15,12 +15,7 @@
 
 .main {
     width: 100vw;
-    min-height: 100vh;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    padding: 120px 24px 160px 24px;
-    pointer-events: none;
+    min-height: 100vh;;
 }
 
 .gradient {
@@ -43,12 +38,6 @@
     filter: blur(100px) saturate(150%);
     top: 80px;
     opacity: 0.15;
-}
-
-@media screen and (max-width: 640px) {
-    .main {
-        padding: 0;
-    }
 }
 
 /* Tailwind Styles */

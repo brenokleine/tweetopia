@@ -6,8 +6,6 @@ const Home = () => {
   
     return (
         <section className=' w-full flex flex-col items-center justify-center'>
-            {/* svg logo here */}
-
 
             <h1 className=" text-6xl text-center text-primary font-bold poetsen-font flex flex-col gap-3">
                 Discover & share your quotes!
