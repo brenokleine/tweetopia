@@ -9,20 +9,20 @@ import { Button } from '@chakra-ui/react'
  
 const Nav = () => {
 
-  const isUserLoggedIn = true
+  const { data: session } = useSession();
 
   const isMobileLayout = window.innerWidth < 768
 
   const [providers, setProviders] = useState(null)
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const res = await getProviders()
 
       setProviders(res)
     }
 
-    setProviders()
+    setUpProviders()
   }, [])
   
   return (
@@ -42,7 +42,7 @@ const Nav = () => {
           </ul>
         </div>
         
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <>
             <div className='flex gap-3 md:gap-5 items-center justify-center'>
               <Link href="/create-quote" className="flex justify-center items-center bg-quaternary text-primary rounded-full p-2 text-md poetsen-font">
@@ -67,7 +67,7 @@ const Nav = () => {
           </>
         ) : (
           <>
-              <div className='flex gap-3 md:gap-5 items-center justify-center'>
+              <div className='flex gap-3 md:gap-5 items-center justify-center pr-8'>
                 {providers && 
                   Object.values(providers).map((provider) => (
                     <Button 
