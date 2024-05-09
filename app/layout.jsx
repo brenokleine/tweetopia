@@ -14,8 +14,8 @@ import Nav from '@/components/Nav'
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className='inter-font main'>
+    <html lang='en' className='main'>
+      <body className='inter-font'>
         <div className='gradient'></div>
           <CProvider>
             <Provider>

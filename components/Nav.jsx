@@ -11,8 +11,6 @@ const Nav = () => {
 
   const { data: session } = useSession();
 
-  const isMobileLayout = window.innerWidth < 768
-
   const [providers, setProviders] = useState(null)
 
   useEffect(() => {
@@ -58,9 +56,9 @@ const Nav = () => {
 
               <Link
                 href="/profile"
-                className="flex justify-center items-center"
+                className="flex justify-center items-center p-1"
               >
-                <Image src="/assets/images/profile-template.svg" className='rounded-full' alt="user" width={60} height={60} />
+                <Image src={session?.user.image} className='rounded-full' alt="user" width={50} height={50} />
               </Link>
             </div>
 
