@@ -27,12 +27,12 @@ const Nav = () => {
     <nav className="bg-secondary p-3 text-white mb-7 w-full">
       <div className="mx-auto flex flex-col flex-wrap items-center md:flex-row md:justify-between">
         <div className='mx auto flex justify-start items-center gap-5'>
-          <Link href="/" className="text-white flex justify-center items-center gap-2">
-            <Image src="/assets/icons/icon.svg" alt="logo" width={60} height={60} />
-            <p className='text-lg poetsen-font'>Tweetopia</p>
-          </Link>
-          {/* separator */}
-          <div>|</div>
+          <div>
+            <Link href="/" className="text-white flex justify-center items-center gap-2">
+              <Image src="/assets/icons/icon.svg" alt="logo" width={60} height={60} />
+              <p className='text-lg poetsen-font'>Tweetopia</p>
+            </Link>
+          </div>
           <ul className="flex gap-2">
             <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/home">Home</Link>
             <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/">Quotes</Link>
