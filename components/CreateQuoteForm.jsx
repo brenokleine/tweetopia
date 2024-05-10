@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { Card, CardHeader, CardBody, CardFooter, Input, InputGroup, InputLeftElement, InputRightElement, CheckboxIcon, ButtonGroup, Button, Textarea } from '@chakra-ui/react'
 
-const CreateQuoteForm = ({ type, post, setPost, submitting, handleSubmit }) => {
+const CreateQuoteForm = ({ post, setPost, submitting, handleSubmit, handleCancel }) => {
 
 
   return (
@@ -48,7 +48,8 @@ const CreateQuoteForm = ({ type, post, setPost, submitting, handleSubmit }) => {
               variant={'filled'}
               placeholder='tag'
               value={post.tag}
-              onChange={(e) => setPost({ ...post, tag: e.target.value })}
+              // Remove spaces from tag
+              onChange={(e) => setPost({ ...post, tag: e.target.value.replace(/\s/g, '')})}
             />
           </InputGroup>
         </div>
@@ -63,15 +64,15 @@ const CreateQuoteForm = ({ type, post, setPost, submitting, handleSubmit }) => {
             <Button
               colorScheme={'green'}
               rounded={'full'}
-              
+              onClick={handleSubmit}
             >
               Post
             </Button>
             <Link href='/'>
               <Button
                 bg={'none'}
-                
                 textColor={'red'}
+                onClick={handleCancel}
               >
                 Cancel
               </Button>
