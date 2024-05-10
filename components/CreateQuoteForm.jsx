@@ -33,7 +33,7 @@ const CreateQuoteForm = ({ type, post, setPost, submitting, handleSubmit }) => {
           />
 
         <div>
-          <div className='flex gap-3 p-2 font-bold'>
+          <div className='flex gap-3 p-2 font-bold flex-wrap'>
             Tags
             <div className='font-normal'>
               (#Motivational, #GoodMorning, #Coffee...)
