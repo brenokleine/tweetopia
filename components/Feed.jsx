@@ -26,29 +26,27 @@ const Feed = () => {
 
   return (
     <Box
-      className=' w-full max-w-[1400px] flex flex-col justify-center'
+      className='w-full max-w-[1400px] flex flex-col '
     >
-      <form>
-        <div className='w-full flex justify-center'>
-          <InputGroup
-            className='w-full max-w-[500px] '
-          >
-            <InputLeftElement pointerEvents='none'>
-              <Search2Icon color='secondary' />
-            </InputLeftElement>
-            <Input
-              type='text'
-              placeholder='Search for a tag or username...'
-              _placeholder={{ color: 'secondary', fontSize: 'sm', opacity: 0.8 }}
-              shadow={'sm'}
-              value={searchText}
-              onChange={handleSearchChange}
-            />
-          </InputGroup>
-        </div>
+      <form className='w-full flex justify-center'>
+        <InputGroup
+          className='w-full max-w-[500px] '
+        >
+          <InputLeftElement pointerEvents='none'>
+            <Search2Icon color='secondary' />
+          </InputLeftElement>
+          <Input
+            type='text'
+            placeholder='Search for a tag or username...'
+            _placeholder={{ color: 'secondary', fontSize: 'sm', opacity: 0.8 }}
+            shadow={'sm'}
+            value={searchText}
+            onChange={handleSearchChange}
+          />
+        </InputGroup>
       </form>
 
-      <div className='w-full flex justify-center'>
+      <div className='w-full mt-10 flex justify-center'>
         <PostCardList
           data={posts}
           handleTagClick={() => { }}

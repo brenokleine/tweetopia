@@ -6,7 +6,7 @@ import PostCard from "./PostCard";
 const PostCardList = ({ data, handleTagClick }) => {
 
   return (
-    <div className='mt-10 flex flex-wrap gap-8 w-fit'>
+    <div className='w-full flex flex-wrap gap-8'>
         {data.map((post) => (
           <PostCard
             key={post._id}

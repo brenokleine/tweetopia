@@ -20,10 +20,8 @@ const Home = () => {
                 </p>
             </div>
 
-            <div className="w-full p-4 flex justify-center mt-10">
-                <Feed
-                
-                />
+            <div className="mt-10">
+                <Feed />
             </div>
 
         </section>
