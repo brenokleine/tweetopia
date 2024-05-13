@@ -48,10 +48,12 @@ const Feed = () => {
         </div>
       </form>
 
-      <PostCardList
-        data={posts}
-        handleTagClick={() => { }}
-      />
+      <div className='w-full flex justify-center'>
+        <PostCardList
+          data={posts}
+          handleTagClick={() => { }}
+        />
+      </div>
 
     </Box>
   )

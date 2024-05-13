@@ -1,17 +1,21 @@
 'use client';
 
-import PostCard from './PostCard'
+import { useEffect, useState } from "react";
+import PostCard from "./PostCard";
 
 const PostCardList = ({ data, handleTagClick }) => {
+
   return (
-    <div className='w-full flex justify-center gap-10 flex-wrap'>
-      {data.map((post) => (
-        <PostCard
-          key={post._id}
-          post={post}
-          handleTagClick={handleTagClick}
-        />
-      ))}
+    <div className='mt-10 flex flex-wrap gap-8 w-fit'>
+        {data.map((post) => (
+          <PostCard
+            key={post._id}
+            post={post}
+            handleTagClick={handleTagClick}
+            handleEdit={() => {}}
+            handleDelete={() => {}}
+          />
+        ))}
     </div>
   )
 }
