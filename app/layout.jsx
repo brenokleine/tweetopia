@@ -11,15 +11,19 @@ import Provider from '../components/Provider'
 import CProvider from './cProvider'
 
 import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className='inter-font min-h-full h-screen gradient'>
+      <body className='inter-font min-h-full h-screen flex flex-col flex-1 gradient'>
           <CProvider>
             <Provider>
               <Nav/>
               {children}
+              <div className='mt-auto'>
+                <Footer/>
+              </div>
             </Provider>
           </CProvider>
       </body>
