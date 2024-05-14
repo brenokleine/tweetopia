@@ -24,7 +24,7 @@ const Nav = () => {
   }, [])
   
   return (
-    <nav className="bg-secondary p-3 text-white mb-7 w-full">
+    <nav className="bg-secondary p-5 text-white mb-7 w-full">
       <div className="mx-auto flex flex-col flex-wrap items-center md:flex-row md:justify-between">
         <div className='mx auto flex justify-start items-center gap-5'>
           <div>
