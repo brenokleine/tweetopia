@@ -24,7 +24,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   }
 
   return (
-    <Card w={'sm'} shadow={'md'} >
+    <Card w={'sm'} maxH={'sm'} shadow={'md'}  >
       <CardHeader
         display='flex'
         justifyContent='space-between'
@@ -43,7 +43,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             </Button>
           </div>
       </CardHeader>
-      <CardBody>
+      <CardBody overflow={'auto'} >
         <Text>
           " {post.quote} "
         </Text>

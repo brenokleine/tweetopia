@@ -46,7 +46,7 @@ const Feed = () => {
         </InputGroup>
       </form>
 
-      <div className='w-full mt-10 flex justify-center'>
+      <div className=' mt-10 flex justify-center'>
         <PostCardList
           data={posts}
           handleTagClick={() => { }}
