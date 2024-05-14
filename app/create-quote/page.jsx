@@ -18,6 +18,17 @@ const CreateQuote = () => {
     tag: '',
   })
 
+  const handlePostChange = (newPost) => {
+    //limits the amount of characters to 500
+    let quote = newPost.quote
+
+    if(quote.length <= 500){
+      setPost(newPost)
+    } else {
+      window.alert('You have reached the maximum amount of 500 characters')
+    }
+  }
+
   useEffect(() => {
     console.log(post)
   }, [post])
@@ -50,7 +61,7 @@ const CreateQuote = () => {
       <div className='p-10 w-full flex justify-center '>
           <CreateQuoteForm
               post={post}
-              setPost={setPost}
+              handlePostChange={handlePostChange}
               submitting={submitting}
               handleSubmit={createQuote}
               handleCancel={() => router.push('/')}
