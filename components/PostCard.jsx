@@ -24,7 +24,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   }
 
   return (
-    <Card size={'md'} shadow={'md'} >
+    <Card w={'sm'} shadow={'md'} >
       <CardHeader
         display='flex'
         justifyContent='space-between'

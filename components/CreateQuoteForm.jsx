@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { Card, CardHeader, CardBody, CardFooter, Input, InputGroup, InputLeftElement, InputRightElement, CheckboxIcon, ButtonGroup, Button, Textarea } from '@chakra-ui/react'
 
-const CreateQuoteForm = ({ post, setPost, submitting, handleSubmit, handleCancel }) => {
+const CreateQuoteForm = ({ post, handlePostChange, submitting, handleSubmit, handleCancel }) => {
 
 
   return (
@@ -29,7 +29,8 @@ const CreateQuoteForm = ({ post, setPost, submitting, handleSubmit, handleCancel
             variant={'filled'}
             size={'lg'}
             value={post.quote}
-            onChange={(e) => setPost({ ...post, quote: e.target.value })}
+            maxLength={500}
+            onChange={(e) => handlePostChange({ ...post, quote: e.target.value })}
           />
 
         <div>
