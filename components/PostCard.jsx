@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
 import { Card, CardHeader, CardBody, CardFooter, Avatar, Text, Button, Heading, HStack, Tag } from '@chakra-ui/react'
 import { Heart, Comment, Share, Paperclip, SmallTick } from '@blueprintjs/icons'
+import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 
 const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
@@ -32,16 +33,35 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         p='4'
       >
         <div className='w-fit flex items-center gap-3 cursor-pointer' onClick={() => {router.push('/profile')}}>
-          <Avatar name='Segun Adebayo' src={post.author.image} />
+          <Avatar size={'md'} src={post.author.image} />
           <Heading size='sm'>@{post.author.username}</Heading>
         </div>
-          <div onClick={() => { handleCopy(); }}>
-            <Button
-              size={'sm'}
-            >
-              {copied === post.quote ? (<SmallTick color='green' />) : (<Paperclip color='gray' />)}
-            </Button>
+          <div className='flex gap-2'>
+            <div onClick={() => { handleCopy(); }}>
+              <Button
+                size={'sm'}
+              >
+                {copied === post.quote ? (<SmallTick color='green' />) : (<Paperclip color='gray' />)}
+              </Button>
+            </div>
+            {session?.user.id === post.author._id && pathname === '/profile' && (
+              <div className='flex gap-2'>
+                <Button
+                  size={'sm'}
+                  onClick={handleEdit}
+                >
+                  <EditIcon color={'primary'} />
+                </Button>
+                <Button
+                  size={'sm'}
+                  onClick={handleDelete}
+                >
+                  <DeleteIcon color={'red'} />
+                </Button>
+              </div>
+            )}
           </div>
+          
       </CardHeader>
       <CardBody overflow={'auto'} >
         <Text>

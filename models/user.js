@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     },
     image: {
         type: String,
+    },
+    joined: {
+        type: Date,
+        default: Date.now,
     }
 });
 

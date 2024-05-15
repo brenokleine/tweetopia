@@ -12,9 +12,11 @@ const MyProfile = () => {
     const router = useRouter()
 
     const [posts, setPosts] = useState([])
+    const [user, setUser] = useState({})
+    const [loading, setLoading] = useState(false)
 
     const handleEdit = () => {
-
+        
     }
 
     const handleDelete = async () => {
@@ -27,22 +29,32 @@ const MyProfile = () => {
             const data = await res.json();
             setPosts(data);
         }
+
+        const fetchUser = async () => {
+            const res = await fetch(`/api/users/${session?.user.id}`);
+            const data = await res.json();
+            setUser(data);
+        }
         
         if(session?.user.id){
             fetchPosts();
+            fetchUser();
         }
     }, [session])
   
     return (
     <div className='p-6'>
-        <Profile
-           userName={session?.user.name || "User"}
-           desc="Software Engineer"
-           image={session?.user.image}
-           data={posts}
-           handleEdit={handleEdit}
-           handleDelete={handleDelete}
-        />
+        {!user && !posts && <p>Loading...</p>}
+        {user && posts && (
+            <Profile
+                user={user}
+                desc="Software Engineer"
+                image={session?.user.image}
+                data={posts}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+            />
+        )}
     </div>
   )
 }

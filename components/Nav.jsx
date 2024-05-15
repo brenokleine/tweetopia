@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
-import { Button } from '@chakra-ui/react'
+import { Avatar, Button } from '@chakra-ui/react'
  
 const Nav = () => {
 
@@ -58,7 +58,7 @@ const Nav = () => {
                 href="/profile"
                 className="flex justify-center items-center p-1"
               >
-                <Image src={session?.user.image} className='rounded-full' alt="user" width={50} height={50} />
+                <Avatar size={'md'} src={session?.user.image} className='rounded-full' alt="user" />
               </Link>
             </div>
 
