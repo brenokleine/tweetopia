@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-import CreateQuoteForm from '../../components/CreateQuoteForm'
+import QuoteForm from '../../components/QuoteForm'
 
 const CreateQuote = () => {
 
@@ -37,6 +37,11 @@ const CreateQuote = () => {
     e.preventDefault()
     setSubmitting(true)
 
+    if(post.quote.length === 0) {
+      window.alert('Quotes cannot be empty!')
+      return
+    }
+
     try {
       const res = await fetch('/api/quote/new', {
         method: 'POST',
@@ -59,12 +64,13 @@ const CreateQuote = () => {
   
     return (
       <div className='p-10 w-full flex justify-center '>
-          <CreateQuoteForm
+          <QuoteForm
               post={post}
               handlePostChange={handlePostChange}
               submitting={submitting}
               handleSubmit={createQuote}
               handleCancel={() => router.push('/')}
+              action={'Create'}
           />
     </div>
   )

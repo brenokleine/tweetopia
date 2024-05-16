@@ -2,9 +2,26 @@
 
 import Image from "next/image"
 import PostCard from "./PostCard"
-import { Avatar, Divider } from "@chakra-ui/react"
+import { Avatar, Divider, useDisclosure } from "@chakra-ui/react"
+import EditPostModal from "./EditPostModal"
+import { useState } from "react"
 
-const Profile = ({ user, desc, image, data, handleEdit, handleDelete }) => {
+const Profile = ({ user, desc, image, data, submitEditPost }) => {
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const [selectedPost, setselectedPost] = useState(null)
+
+    const handleEdit = (post) => {
+        setselectedPost(post)
+        onOpen();
+    }
+
+
+    const handleDelete = async () => {
+
+    }
+
   return (
       <div className="max-w-4xl mx-auto flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center w-full justify-start">
@@ -14,7 +31,7 @@ const Profile = ({ user, desc, image, data, handleEdit, handleDelete }) => {
               <div>
                   <h1 className="text-2xl font-bold">@{user.username}</h1>
                   <p className="text-gray-600">{desc}</p>
-                  <p className="text-gray-600 text-sm">Joined: {user.joined ? user.joined : '- - -'}</p>
+                  {/* <p className="text-gray-600 text-sm">Joined: {user.joined ? user.joined : '- - -'}</p> */}
               </div>
           </div>
           <div className="w-full">
@@ -31,6 +48,14 @@ const Profile = ({ user, desc, image, data, handleEdit, handleDelete }) => {
                   />
               ))}
           </div>
+          {isOpen && (
+            <EditPostModal
+                isOpen={isOpen}
+                onClose={onClose}
+                post={selectedPost}
+                onSubmit={(editedPost) => { submitEditPost(editedPost, selectedPost._id); onClose(); }}
+            />
+          )}
       </div>
   )
 }

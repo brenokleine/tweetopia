@@ -4,20 +4,21 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { Card, CardHeader, CardBody, CardFooter, Input, InputGroup, InputLeftElement, InputRightElement, CheckboxIcon, ButtonGroup, Button, Textarea } from '@chakra-ui/react'
 
-const CreateQuoteForm = ({ post, handlePostChange, submitting, handleSubmit, handleCancel }) => {
+const QuoteForm = ({ post, handlePostChange, submitting, handleSubmit, handleCancel, action }) => {
 
 
   return (
     <Card
       size={'lg'}
-      sx={{width: '800px'}}
+      maxW={'800px'}
+      width={'100%'}
       shadow={'xl'}
     >
       <CardHeader
         className='text-5xl font-bold text-primary poetsen-font'
         sx={{ paddingBottom: '15px' }}
       >
-        Create Quote
+        {action} Quote
       </CardHeader>
       <CardBody
         display={'flex'}
@@ -50,7 +51,7 @@ const CreateQuoteForm = ({ post, handlePostChange, submitting, handleSubmit, han
               placeholder='tag'
               value={post.tag}
               // Remove spaces from tag
-              onChange={(e) => setPost({ ...post, tag: e.target.value.replace(/\s/g, '')})}
+              onChange={(e) => handlePostChange({ ...post, tag: e.target.value.replace(/\s/g, '')})}
             />
           </InputGroup>
         </div>
@@ -67,7 +68,7 @@ const CreateQuoteForm = ({ post, handlePostChange, submitting, handleSubmit, han
               rounded={'full'}
               onClick={handleSubmit}
             >
-              Post
+              {action}
             </Button>
             <Link href='/'>
               <Button
@@ -84,4 +85,4 @@ const CreateQuoteForm = ({ post, handlePostChange, submitting, handleSubmit, han
   )
 }
 
-export default CreateQuoteForm
+export default QuoteForm

@@ -68,11 +68,13 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           " {post.quote} "
         </Text>
         {/* stack is for the setup for when post handles more than1  tag */}
-        <HStack spacing={4} mt={8}>
-          <Tag size={'sm'} variant='solid' bg={'secondary'} onClick={() => { handleTagClick && handleTagClick(post.tag)}}>
-            #{post.tag}
-          </Tag>
-        </HStack>
+        {post.tag && post.tag !== '' && (
+          <HStack spacing={4} mt={8}>
+            <Tag size={'sm'} variant='solid' bg={'secondary'} onClick={() => { handleTagClick && handleTagClick(post.tag) }}>
+              #{post.tag}
+            </Tag>
+          </HStack>
+        )}
       </CardBody>
       <CardFooter
         display='flex'
