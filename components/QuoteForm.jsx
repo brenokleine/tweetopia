@@ -70,15 +70,13 @@ const QuoteForm = ({ post, handlePostChange, submitting, handleSubmit, handleCan
             >
               {action}
             </Button>
-            <Link href='/'>
-              <Button
-                bg={'none'}
-                textColor={'red'}
-                onClick={handleCancel}
-              >
-                Cancel
-              </Button>
-            </Link>
+            <Button
+              bg={'none'}
+              textColor={'red'}
+              onClick={handleCancel}
+            >
+              Cancel
+            </Button>
           </ButtonGroup>
       </CardFooter>
     </Card>

@@ -64,6 +64,23 @@ const MyProfile = () => {
         
         }
     }
+
+    const submitDeletePost = async (postId) => {
+        if (!postId) return alert('Error: Post Id not found')
+
+        try {
+            const res = await fetch(`/api/quote/${postId}`, {
+                method: 'DELETE',
+            })
+
+            if (res.ok) {
+                fetchPosts();
+            }
+
+        } catch (error) {
+            console.log("Error deleting quote: ", error)
+        }
+    }
   
     return (
     <div className='p-6'>
@@ -75,6 +92,7 @@ const MyProfile = () => {
                     image={user.image}
                     data={posts}
                     submitEditPost={(editedPost, postId) => submitEditPost(editedPost, postId)}
+                    submitDeletePost={(postId) => submitDeletePost(postId)}
                 />
             )}
     </div>

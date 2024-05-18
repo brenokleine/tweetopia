@@ -8,7 +8,7 @@ import { Card, CardHeader, CardBody, CardFooter, Avatar, Text, Button, Heading, 
 import { Heart, Comment, Share, Paperclip, SmallTick } from '@blueprintjs/icons'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 
-const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConfirmation }) => {
 
   const { data: session } = useSession()
   const pathname = usePathname()
@@ -44,7 +44,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
                 {copied === post.quote ? (<SmallTick color='green' />) : (<Paperclip color='gray' />)}
               </Button>
             </div>
-            {session?.user.id === post.author._id && pathname === '/profile' && (
+            {session?.user.id === post.author._id && pathname === '/profile' && !isDeleteConfirmation && (
               <div className='flex gap-2'>
                 <Button
                   size={'sm'}
@@ -81,6 +81,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         justifyContent='space-evenly'
         alignItems='center'
         p='3'
+        hidden={isDeleteConfirmation}
       >
         <Button variant='ghost' leftIcon={<Heart/>}>
           Like

@@ -5,21 +5,24 @@ import PostCard from "./PostCard"
 import { Avatar, Divider, useDisclosure } from "@chakra-ui/react"
 import EditPostModal from "./EditPostModal"
 import { useState } from "react"
+import DeletePostModal from "./DeletePostModal"
 
-const Profile = ({ user, desc, image, data, submitEditPost }) => {
+const Profile = ({ user, desc, image, data, submitEditPost, submitDeletePost }) => {
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure()
+    const { isOpen: isDeleteOpen, onOpen: onDeleteOpen, onClose: onDeleteClose } = useDisclosure()
 
     const [selectedPost, setselectedPost] = useState(null)
 
     const handleEdit = (post) => {
         setselectedPost(post)
-        onOpen();
+        onEditOpen();
     }
 
 
-    const handleDelete = async () => {
-
+    const handleDelete = async (post) => {
+        setselectedPost(post);
+        onDeleteOpen();
     }
 
   return (
@@ -48,12 +51,20 @@ const Profile = ({ user, desc, image, data, submitEditPost }) => {
                   />
               ))}
           </div>
-          {isOpen && (
+          {isEditOpen && (
             <EditPostModal
-                isOpen={isOpen}
-                onClose={onClose}
+                isOpen={isEditOpen}
+                onClose={onEditClose}
                 post={selectedPost}
-                onSubmit={(editedPost) => { submitEditPost(editedPost, selectedPost._id); onClose(); }}
+                onSubmit={(editedPost) => { submitEditPost(editedPost, selectedPost._id); setselectedPost(null); onEditClose(); }}
+            />
+          )}
+          {isDeleteOpen && (
+            <DeletePostModal
+                isOpen={isDeleteOpen}
+                onClose={onDeleteClose}
+                onDelete={() => { submitDeletePost(selectedPost._id); setselectedPost(null); onDeleteClose(); }}
+                post={selectedPost}
             />
           )}
       </div>
