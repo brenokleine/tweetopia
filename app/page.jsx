@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <section className=' w-full flex flex-col items-center justify-center'>
 
-            <div className="flex flex-col justify-center items-center gap-6">
+            <div className="flex flex-col justify-center items-center gap-6 backdrop-blur-md w-full pb-10">
                 <h1 className=" text-6xl text-center text-primary font-bold poetsen-font flex flex-col gap-3">
                     Discover & share your quotes!
                 

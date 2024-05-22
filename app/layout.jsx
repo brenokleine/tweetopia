@@ -16,11 +16,13 @@ import Footer from '@/components/Footer'
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className='inter-font min-h-full h-screen flex flex-col flex-1 gradient'>
+      <body className='inter-font min-h-full h-screen flex flex-col flex-1 ' >
           <CProvider>
             <Provider>
               <Nav/>
-              {children}
+              <div className='pb-14 pt-7 bg-cover bg-center bg-no-repeat bg-fixed' style={{ backgroundImage: 'url(/assets/images/bg1.svg)' }}>
+                {children}
+              </div>
               <div className='mt-auto'>
                 <Footer/>
               </div>

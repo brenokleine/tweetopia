@@ -24,7 +24,7 @@ const Nav = () => {
   }, [])
   
   return (
-    <nav className="bg-secondary p-5 text-white mb-7 w-full">
+    <nav className="bg-secondary p-5 text-white w-full">
       <div className="mx-auto flex flex-col flex-wrap items-center md:flex-row md:justify-between">
         <div className='mx auto flex justify-start items-center gap-5'>
           <div>
@@ -33,11 +33,11 @@ const Nav = () => {
               <p className='text-lg poetsen-font'>Tweetopia</p>
             </Link>
           </div>
-          <ul className="flex gap-2">
-            <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/home">Home</Link>
+          {/* <ul className="flex gap-2">
+            <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/">Home</Link>
             <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/">Quotes</Link>
             <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/">About</Link>
-          </ul>
+          </ul> */}
         </div>
         
         {session?.user ? (

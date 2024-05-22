@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='bg-secondary mt-14 w-full text-quaternary p-10'>
+    <footer className='bg-secondary w-full text-quaternary p-10'>
       <div className='flex justify-center items-center flex-wrap '>
         <p>
           © 2024 Tweetopia | Created by
