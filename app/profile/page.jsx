@@ -88,7 +88,6 @@ const MyProfile = () => {
             {user && posts && (
                 <Profile
                     user={user}
-                    desc="Software Engineer"
                     image={user.image}
                     data={posts}
                     submitEditPost={(editedPost, postId) => submitEditPost(editedPost, postId)}

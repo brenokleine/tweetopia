@@ -32,7 +32,13 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
         alignItems='center'
         p='4'
       >
-        <div className='w-fit flex items-center gap-3 cursor-pointer' onClick={() => {router.push('/profile')}}>
+        <div className='w-fit flex items-center gap-3 cursor-pointer' onClick={() => {
+          if(session?.user.id === post.author._id){
+            router.push('/profile')
+          } else {
+            router.push(`/profile/${post.author._id}`)
+          }
+        }}>
           <Avatar size={'md'} src={post.author.image} />
           <Heading size='sm'>@{post.author.username}</Heading>
         </div>
