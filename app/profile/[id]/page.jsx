@@ -29,15 +29,12 @@ const MyProfile = () => {
     }
 
     useEffect(() => {
-        if (session?.user.id) {
-            fetchPosts();
-            fetchUser();
-        }
+        fetchPosts();
+        fetchUser();
     }, [session])
 
     return (
         <div>
-            {!user && !posts && <p>Loading...</p>}
             {user && posts && (
                 <Profile
                     user={user}
