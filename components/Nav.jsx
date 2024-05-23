@@ -112,6 +112,8 @@ const Nav = () => {
                 bg='tertiary'
                 color='white'
                 roundedTopLeft={'xl'}
+                fontWeight={'light'}
+                className='poetsen-font'
               >
                 Menu
               </DrawerHeader>
@@ -167,7 +169,7 @@ const Nav = () => {
                     </div>
                   )}
                 </div>
-                <ul className="flex flex-col w-full mb-4 rounded-md" onClick={onClose}>
+                <ul className="flex flex-col w-full mb-4 rounded-md bg-quaternary font-bold" onClick={onClose}>
                   <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="/">Home</Link>
                   <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="/quotes">Quotes</Link>
                   <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="/contact">Contact</Link>
