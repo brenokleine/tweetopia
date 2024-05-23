@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { PostCard } from './PostCard'
 import { Box, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
-import { CloseIcon, Search2Icon } from '@chakra-ui/icons'
+import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons'
 import PostCardList from './PostCardList'
 import { debounce } from 'lodash'
 
@@ -63,11 +63,10 @@ const Feed = () => {
             value={searchText}
             onChange={(e) => handleSearchChange(e.target.value)}
           />
-          <InputRightElement fontSize={'xs'}>
-            <CloseIcon
+          <InputRightElement fontSize={'md'} onClick={() => handleSearchChange('')}>
+            <SmallCloseIcon
               color='secondary'
               cursor='pointer'
-              onClick={() => handleSearchChange('')}
             />
           </InputRightElement>
         </InputGroup>
