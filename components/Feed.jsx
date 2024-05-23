@@ -30,15 +30,18 @@ const Feed = () => {
     >
       <form className='w-full flex justify-center'>
         <InputGroup
-          className='w-full max-w-[500px] '
+          className='w-full max-w-[600px]'
+          size={'lg'}
+          bg={'white'}
+          rounded={'full'}
         >
           <InputLeftElement pointerEvents='none'>
             <Search2Icon color='secondary' />
           </InputLeftElement>
           <Input
             type='text'
-            placeholder='Search for a tag or username...'
-            _placeholder={{ color: 'secondary', fontSize: 'sm', opacity: 0.8 }}
+            placeholder='Search for a tag, username or quote...'
+            _placeholder={{ color: 'secondary', fontSize: 'md', opacity: 0.8 }}
             shadow={'sm'}
             value={searchText}
             onChange={handleSearchChange}
@@ -46,7 +49,7 @@ const Feed = () => {
         </InputGroup>
       </form>
 
-      <div className=' mt-10 flex justify-center'>
+      <div className='mt-10 flex justify-center'>
         <PostCardList
           data={posts}
           handleTagClick={() => { }}
