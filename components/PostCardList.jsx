@@ -11,7 +11,7 @@ const PostCardList = ({ data, handleTagClick }) => {
           <PostCard
             key={post._id}
             post={post}
-            handleTagClick={handleTagClick}
+            handleTagClick={(tag) => handleTagClick(tag)}
             handleEdit={() => {}}
             handleDelete={() => {}}
           />

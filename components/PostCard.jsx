@@ -76,7 +76,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
         {/* stack is for the setup for when post handles more than1  tag */}
         {post.tag && post.tag !== '' && (
           <HStack spacing={4} mt={8}>
-            <Tag size={'sm'} variant='solid' bg={'secondary'} onClick={() => { handleTagClick && handleTagClick(post.tag) }}>
+            <Tag size={'sm'} variant='solid' bg={'secondary'} cursor={'pointer'} onClick={() => { handleTagClick && handleTagClick(post.tag) }}>
               #{post.tag}
             </Tag>
           </HStack>
