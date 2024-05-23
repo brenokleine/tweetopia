@@ -25,7 +25,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
   }
 
   return (
-    <Card w={'sm'} maxH={'sm'} shadow={'md'}  >
+    <Card w={'sm'} maxH={'xs'} shadow={'md'}  >
       <CardHeader
         display='flex'
         justifyContent='space-between'
@@ -82,7 +82,8 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
           </HStack>
         )}
       </CardBody>
-      <CardFooter
+      {/* like comment share to be done later */}
+      {/* <CardFooter
         display='flex'
         justifyContent='space-evenly'
         alignItems='center'
@@ -98,7 +99,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
         <Button variant='ghost' leftIcon={<Share/>}>
           Share
         </Button>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   )
 }

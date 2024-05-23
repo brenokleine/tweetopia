@@ -6,7 +6,7 @@ import PostCard from "./PostCard";
 const PostCardList = ({ data, handleTagClick }) => {
 
   return (
-    <div className=' grid grid-cols-1 gridBreakpoint:grid-cols-2 xxl:grid-cols-3 gap-8 items-center'>
+    <div className=' grid grid-cols-1 gridBreakpoint:grid-cols-2 gap-8 items-center'>
         {data.map((post) => (
           <PostCard
             key={post._id}
