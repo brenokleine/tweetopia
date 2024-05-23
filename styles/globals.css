@@ -13,3 +13,8 @@
     font-family: 'Poetsen One', sans-serif;
 }
 
+.backBlur {
+    -webkit-backdrop-filter: blur(12px); 
+    backdrop-filter: blur(12px); 
+}
+

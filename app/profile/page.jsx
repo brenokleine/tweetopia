@@ -84,16 +84,15 @@ const MyProfile = () => {
   
     return (
         <div>
-            {!user && !posts && <p>Loading...</p>}
-                {user && posts && (
-                    <Profile
-                        user={user}
-                        image={user.image}
-                        data={posts}
-                        submitEditPost={(editedPost, postId) => submitEditPost(editedPost, postId)}
-                        submitDeletePost={(postId) => submitDeletePost(postId)}
-                    />
-                )}
+            {user && posts && (
+                <Profile
+                    user={user}
+                    image={user.image}
+                    data={posts}
+                    submitEditPost={(editedPost, postId) => submitEditPost(editedPost, postId)}
+                    submitDeletePost={(postId) => submitDeletePost(postId)}
+                />
+            )}
         </div>
     )
 }

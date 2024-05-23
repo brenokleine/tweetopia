@@ -26,7 +26,7 @@ const Profile = ({ user, desc, image, data, submitEditPost, submitDeletePost }) 
     }
 
   return (
-      <div className="max-w-4xl mx-auto flex flex-col items-center md:items-start gap-4">
+      <div className="max-w-4xl mx-auto flex flex-col items-center md:items-start gap-4 p-4">
           <div className="flex items-center w-full justify-start">
               <div className="mr-4">
                   <Avatar size="xl" src={image} />
