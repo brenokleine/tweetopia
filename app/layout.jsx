@@ -15,8 +15,8 @@ import Footer from '@/components/Footer'
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className='min-h-full h-screen inter-font flex flex-col bg-cover bg-center bg-no-repeat bg-fixed backdrop-blur-sm ' style={{ backgroundImage: 'url(/assets/images/bg1.svg)' }} >
+    <html lang='en' className='h-full h-screen'>
+      <body style={{ backgroundImage: 'url(/assets/images/bg1.svg)' }} className='min-h-full h-screen h-full inter-font flex flex-col bg-cover bg-center bg-no-repeat bg-fixed' >
         <CProvider>
           <Provider> 
             <div className='mb-16'>
