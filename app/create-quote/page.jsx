@@ -63,7 +63,7 @@ const CreateQuote = () => {
   }
   
     return (
-      <div className='p-10 w-full flex justify-center '>
+      <div className='w-full flex justify-center '>
           <QuoteForm
               post={post}
               handlePostChange={handlePostChange}

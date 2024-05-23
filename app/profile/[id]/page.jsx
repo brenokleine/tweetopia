@@ -36,7 +36,7 @@ const MyProfile = () => {
     }, [session])
 
     return (
-        <div className='p-6'>
+        <div>
             {!user && !posts && <p>Loading...</p>}
             {user && posts && (
                 <Profile
