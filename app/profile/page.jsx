@@ -83,19 +83,19 @@ const MyProfile = () => {
     }
   
     return (
-    <div className='p-6'>
-        {!user && !posts && <p>Loading...</p>}
-            {user && posts && (
-                <Profile
-                    user={user}
-                    image={user.image}
-                    data={posts}
-                    submitEditPost={(editedPost, postId) => submitEditPost(editedPost, postId)}
-                    submitDeletePost={(postId) => submitDeletePost(postId)}
-                />
-            )}
-    </div>
-  )
+        <div>
+            {!user && !posts && <p>Loading...</p>}
+                {user && posts && (
+                    <Profile
+                        user={user}
+                        image={user.image}
+                        data={posts}
+                        submitEditPost={(editedPost, postId) => submitEditPost(editedPost, postId)}
+                        submitDeletePost={(postId) => submitDeletePost(postId)}
+                    />
+                )}
+        </div>
+    )
 }
 
 export default MyProfile
