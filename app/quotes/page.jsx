@@ -1,10 +1,10 @@
-import FeedServer from '@/components/FeedServer'
+import Feed from '@/components/Feed'
 import React from 'react'
 
 const Quotes = () => {
   return (
     <div className='w-full flex justify-center'>
-        <FeedServer/>
+        <Feed/>
     </div>
   )
 }

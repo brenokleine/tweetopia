@@ -1,14 +1,15 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Box, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
 import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons'
 import PostCardList from './PostCardList'
 import { debounce } from 'lodash'
 
-const Feed = ({ posts }) => {
+const Feed = () => {
   const [searchText, setSearchText] = useState('')
-  const [searchResults, setSearchResults] = useState(posts || [])
+  const [searchResults, setSearchResults] = useState([])
+  const [posts, setPosts] = useState([])
 
   const handleSearchChange = (e) => {
     const value = e
@@ -27,6 +28,19 @@ const Feed = ({ posts }) => {
       setSearchResults(results)
     }
   }, 300), [posts])
+
+  const fetchPosts = async () => {
+    const res = await fetch('/api/quote');
+    const data = await res.json();
+    setPosts(data);
+    setSearchResults(data);
+
+    console.log(data);
+  }
+
+  useEffect(() => {
+    fetchPosts();
+  }, [])
 
   return (
     <Box
@@ -69,5 +83,7 @@ const Feed = ({ posts }) => {
     </Box>
   )
 }
+
+export const dynamic = 'force-dynamic'
 
 export default Feed
