@@ -1,9 +1,13 @@
+'use server'
+
 import Feed from '@/components/Feed'
 import React from 'react'
 
 const fetchPosts = async () => {
   const res = await fetch('/api/quote');
   const data = await res.json();
+
+  return data;
 }
 
 const Quotes = () => {
