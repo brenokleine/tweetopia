@@ -13,6 +13,8 @@ import CProvider from './cProvider'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
+export const dynamic = 'force-dynamic'
+
 export default function RootLayout({ children }) {
   return (
     <html lang='en' className='h-full h-screen'>
