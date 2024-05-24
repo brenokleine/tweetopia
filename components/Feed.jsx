@@ -1,19 +1,15 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { PostCard } from './PostCard'
-import { Box, Button, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
+import { Box, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react'
 import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons'
 import PostCardList from './PostCardList'
 import { debounce } from 'lodash'
-import { useSession } from 'next-auth/react'
 
 const Feed = () => {
   const [searchText, setSearchText] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [posts, setPosts] = useState([])
-
-  const { data: session } = useSession()
 
   const handleSearchChange = (e) => {
     const value = e
@@ -44,17 +40,12 @@ const Feed = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, [session])
+  }, [])
 
   return (
     <Box
       className='w-full max-w-[1400px] flex flex-col '
     >
-      <Button
-        onClick={() => { fetchPosts(); }}
-      >
-        refresh posts
-      </Button>
       <form className='w-full flex justify-center'>
         <InputGroup
           className='w-full max-w-[600px]'
