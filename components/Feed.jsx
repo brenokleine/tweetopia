@@ -30,16 +30,16 @@ const Feed = () => {
     }
   }, 300), [posts])
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch('/api/quote');
-      const data = await res.json();
-      setPosts(data);
-      setSearchResults(data);
-  
-      console.log(data);
-    }
+  const fetchPosts = async () => {
+    const res = await fetch('/api/quote');
+    const data = await res.json();
+    setPosts(data);
+    setSearchResults(data);
 
+    console.log(data);
+  }
+  
+  useEffect(() => {
     fetchPosts();
   }, [])
 
