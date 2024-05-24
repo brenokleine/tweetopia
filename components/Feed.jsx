@@ -36,6 +36,8 @@ const Feed = () => {
       const data = await res.json();
       setPosts(data);
       setSearchResults(data);
+  
+      console.log(data);
     }
 
     fetchPosts();
