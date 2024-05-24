@@ -2,7 +2,7 @@ import React from 'react'
 import Feed from './Feed'
 
 const fetchPosts = async () => {
-    const res = await fetch('/api/quote');
+    const res = await fetch('https://tweetopia-me.vercel.app/api/quote');
     const data = await res.json();
     return data;
 }
