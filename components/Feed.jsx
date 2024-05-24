@@ -6,6 +6,8 @@ import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons'
 import PostCardList from './PostCardList'
 import { debounce } from 'lodash'
 
+export const dynamic = 'force-dynamic'
+
 const Feed = () => {
   const [searchText, setSearchText] = useState('')
   const [searchResults, setSearchResults] = useState([])
