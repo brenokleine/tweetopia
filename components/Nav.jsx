@@ -66,7 +66,7 @@ const Nav = () => {
                   Sign Out
                 </Button>
                 <Link
-                  href="/profile"
+                  href={`/profile/${session?.user.id}`}
                   className="flex justify-center items-center p-1"
                 >
                   <Avatar size={'md'} src={session?.user.image} className='rounded-full' alt="user" />
