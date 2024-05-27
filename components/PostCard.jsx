@@ -32,13 +32,11 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
         alignItems='center'
         p='4'
       >
-        <div className='w-fit flex items-center gap-3 cursor-pointer' onClick={() => {
-          if(session?.user.id === post.author._id){
-            router.push('/profile')
-          } else {
+        <div className='w-fit flex items-center gap-3 cursor-pointer' 
+          onClick={() => {
             router.push(`/profile/${post.author._id}`)
-          }
-        }}>
+          }}
+        >
           <Avatar size={'md'} src={post.author.image} />
           <Heading size='sm'>@{post.author.username}</Heading>
         </div>
@@ -50,7 +48,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
                 {copied === post.quote ? (<SmallTick color='green' />) : (<Paperclip color='gray' />)}
               </Button>
             </div>
-            {session?.user.id === post.author._id && pathname === '/profile' && !isDeleteConfirmation && (
+          {session?.user.id === post.author._id && pathname === `/profile/${session?.user.id}` && !isDeleteConfirmation && (
               <div className='flex gap-2'>
                 <Button
                   size={'sm'}
