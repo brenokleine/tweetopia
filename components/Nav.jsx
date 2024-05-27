@@ -131,7 +131,7 @@ const Nav = () => {
                   {session?.user ? (
                     <div className='flex items-center justify-between mb-1 mt-1'>
                       <Link
-                        href="/profile"
+                        href={`/profile/${session?.user.id}`}
                         className="flex justify-center items-center p-3 pl-1"
                         onClick={onClose}
                       >
