@@ -5,11 +5,13 @@ import { Box, Input, InputGroup, InputLeftElement, InputRightElement } from '@ch
 import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons'
 import PostCardList from './PostCardList'
 import { debounce } from 'lodash'
+import LoadingSpinner from './LoadingSpinner'
 
 const Feed = () => {
   const [searchText, setSearchText] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [posts, setPosts] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSearchChange = (e) => {
     const value = e
@@ -30,12 +32,12 @@ const Feed = () => {
   }, 300), [posts])
 
   const fetchPosts = async () => {
+    setIsLoading(true);
     const res = await fetch('/api/quote');
     const data = await res.json();
     setPosts(data);
     setSearchResults(data);
-
-    console.log(data);
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -74,16 +76,18 @@ const Feed = () => {
       </form>
 
       <div className='mt-10 flex justify-center'>
-        <PostCardList
-          data={searchResults}
-          handleTagClick={(tag) => { handleSearchChange(tag) }}
-        />
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <PostCardList
+            data = { searchResults }
+            handleTagClick = { (tag) => { handleSearchChange(tag) } }
+          />
+        )}
       </div>
 
     </Box>
   )
 }
-
-export const dynamic = 'force-dynamic'
 
 export default Feed
