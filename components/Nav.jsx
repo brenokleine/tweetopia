@@ -37,7 +37,7 @@ const Nav = () => {
   
   return (
     <nav className="bg-secondary p-5 text-white w-full">
-      <div className="mx-auto flex justify-between">
+      <div className="mx-auto flex justify-between items-center">
         <div className='mx auto flex justify-start items-center gap-5'>
           <div>
             <Link href='/quotes' className="text-white flex justify-center items-center gap-2">
@@ -61,7 +61,10 @@ const Nav = () => {
                 </Link>
                 <Button
                   onClick={signOut}
-                  colorScheme={'blackAlpha'}
+                  bg={'tertiary'}
+                  _hover={{ bg: 'primary' }}
+                  color={'white'}
+                  rounded={'full'}
                 >
                   Sign Out
                 </Button>
@@ -81,7 +84,10 @@ const Nav = () => {
                       <Button
                         key={provider.name}
                         onClick={() => signIn(provider.id)}
-                        colorScheme={'blackAlpha'}
+                        bg={'tertiary'}
+                        _hover={{ bg: 'primary' }}
+                        color={'white'}
+                        rounded={'full'}
                       >
                         Sign in with {provider.name}
                       </Button>

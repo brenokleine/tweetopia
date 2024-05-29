@@ -1,9 +1,10 @@
-
-import Feed from "@/components/Feed"
+'use client'
 import { Button } from "@chakra-ui/react"
+import { useRouter } from "next/navigation"
 
 const Home = () => {
   
+    const router = useRouter()
   
     return (
         <section className="flex h-full justify-center flex-col backBlur  p-10 gap-14 lg:flex-row lg:backdrop-blur-0 lg:gap-0">
@@ -26,6 +27,7 @@ const Home = () => {
                     color={'white'}
                     rounded={'full'}
                     size={'lg'}
+                    onClick={() => router.push('/quotes')}
                 >
                     Get Started
                 </Button>
