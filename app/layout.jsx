@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <body style={{ backgroundImage: 'url(/assets/images/bg1.svg)' }} className='min-h-full h-screen h-full inter-font flex flex-col bg-cover bg-center bg-no-repeat bg-fixed' >
         <CProvider>
           <Provider> 
-            <div className='mb-16'>
+            <div className='mb-10'>
               <Nav />
             </div>
               {children}
