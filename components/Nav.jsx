@@ -48,7 +48,7 @@ const Nav = () => {
           <ul className="flex gap-2 hidden md:block">
             <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/">Home</Link>
             <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/quotes">Quotes</Link>
-            <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/contact">Contact</Link>
+            <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="https://brenobernstein.com/" target='_blank'>Contact</Link>
           </ul>
         </div>
         
@@ -178,7 +178,7 @@ const Nav = () => {
                 <ul className="flex flex-col w-full mb-4 rounded-md bg-quaternary font-bold" onClick={onClose}>
                   <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="/">Home</Link>
                   <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="/quotes">Quotes</Link>
-                  <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="/contact">Contact</Link>
+                  <Link className="transition ease-in rounded-md hover:bg-tertiary hover:text-white p-3 w-full" href="https://brenobernstein.com/" target='_blank'>Contact</Link>
                 </ul>
                   {session?.user && (
                     <Link 
