@@ -53,7 +53,7 @@ const CreateQuote = () => {
       })
 
       if(res.ok){
-        router.push('/')
+        router.push('/quotes')
       }
     } catch (error) {
       console.log("Error creating quote: ", error)
@@ -69,7 +69,7 @@ const CreateQuote = () => {
               handlePostChange={handlePostChange}
               submitting={submitting}
               handleSubmit={createQuote}
-              handleCancel={() => router.push('/')}
+              handleCancel={() => router.push('/quotes')}
               action={'Create'}
           />
     </div>
