@@ -30,7 +30,7 @@ const QuoteForm = ({ post, handlePostChange, submitting, handleSubmit, handleCan
             variant={'filled'}
             size={'lg'}
             value={post.quote}
-            maxLength={500}
+            maxLength={300}
             onChange={(e) => handlePostChange({ ...post, quote: e.target.value })}
           />
 
@@ -50,10 +50,14 @@ const QuoteForm = ({ post, handlePostChange, submitting, handleSubmit, handleCan
               variant={'filled'}
               placeholder='tag'
               value={post.tag}
-              // Remove spaces from tag
-              onChange={(e) => handlePostChange({ ...post, tag: e.target.value.replace(/\s/g, '')})}
+              onChange={(e) => handlePostChange({ ...post, tag: e.target.value.replace(/[\s#]/g, '')})}
             />
           </InputGroup>
+          <p className='text-sm p-2 text-orange-500 font-semibold'>
+            * No need to add "#" 
+            <br />
+            * Only one tag allowed (for now)
+          </p>
         </div>
       </CardBody>
       <CardFooter>

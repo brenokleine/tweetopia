@@ -40,7 +40,7 @@ const Profile = ({ user, desc, image, data, submitEditPost, submitDeletePost }) 
           <div className="w-full">
               <Divider  />
           </div>
-          <div className='flex gap-6 flex-wrap justify-start'>
+          <div className='flex gap-6 flex-wrap justify-start items-start'>
               {data.map((post) => (
                   <PostCard
                       key={post._id}

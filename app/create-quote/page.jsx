@@ -28,10 +28,10 @@ const CreateQuote = () => {
     //limits the amount of characters to 500
     let quote = newPost.quote
 
-    if(quote.length <= 500){
+    if(quote.length <= 300){
       setPost(newPost)
     } else {
-      window.alert('You have reached the maximum amount of 500 characters')
+      window.alert('You have reached the maximum amount of 300 characters')
     }
   }
 
