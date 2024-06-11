@@ -84,7 +84,7 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
             {post.quote}
           </Text>
         </div>
-        {post.quote.length > 100 && ( // Adjust the length as needed to trigger "see more"
+        {post.quote.length > 125 && ( // Adjust the length as needed to trigger "see more"
           <Button size="xs" onClick={toggleExpand} mt={2} color={'secondary'}>
             {isExpanded ? 'See Less' : 'See More'}
           </Button>
