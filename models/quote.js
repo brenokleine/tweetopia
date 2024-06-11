@@ -12,7 +12,10 @@ const QuoteSchema = new Schema({
     tag: {
         type: String,
         required: false,
-    }, 
+    },
+    creationDate: {
+        type: Date,
+    },
     
 });
 

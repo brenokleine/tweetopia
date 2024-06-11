@@ -29,26 +29,24 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
       <CardHeader
         display='flex'
         justifyContent='space-between'
-        alignItems='center'
+        alignItems='start'
         p='4'
       >
-        <div className='w-fit flex items-center gap-3 cursor-pointer' 
+        <div className='flex flex-col gap-3' 
           onClick={() => {
             router.push(`/profile/${post.author._id}`)
           }}
         >
-          <Avatar size={'md'} src={post.author.image} />
-          <Heading size='sm'>@{post.author.username}</Heading>
+          <div className='w-fit flex items-center gap-3 cursor-pointer'>
+            <Avatar size={'md'} src={post.author.image} />
+            <Heading size='sm'>@{post.author.username}</Heading>
+          </div>
+            <p className=' text-xs text-gray-500 font-semibold'>
+              {new Date(post.creationDate).toLocaleDateString()} | {new Date(post.creationDate).toLocaleTimeString(undefined, {hour: '2-digit',minute: '2-digit',})}
+            </p>
         </div>
-          <div className='flex gap-2'>
-            <div onClick={() => { handleCopy(); }}>
-              <Button
-                size={'sm'}
-              >
-                {copied === post.quote ? (<SmallTick color='green' />) : (<Paperclip color='gray' />)}
-              </Button>
-            </div>
-          {session?.user.id === post.author._id && pathname === `/profile/${session?.user.id}` && !isDeleteConfirmation && (
+          <div className='flex gap-2 flex-wrap justify-end items-start'>
+            {session?.user.id === post.author._id && pathname === `/profile/${session?.user.id}` && !isDeleteConfirmation && (
               <div className='flex gap-2'>
                 <Button
                   size={'sm'}
@@ -64,6 +62,13 @@ const PostCard = ({ post, handleTagClick, handleEdit, handleDelete, isDeleteConf
                 </Button>
               </div>
             )}
+            <div onClick={() => { handleCopy(); }} className=''>
+              <Button
+                size={'sm'}
+              >
+                {copied === post.quote ? (<SmallTick color='green' />) : (<Paperclip color='gray' />)}
+              </Button>
+            </div>
           </div>
           
       </CardHeader>

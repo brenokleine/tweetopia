@@ -11,6 +11,7 @@ export const POST = async (req, res) => {
             author: userId,
             quote,
             tag,
+            creationDate: new Date(),
         });
         await newQuote.save();
 
