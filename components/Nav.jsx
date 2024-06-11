@@ -18,10 +18,11 @@ import {
 import { HamburgerIcon, SmallAddIcon } from '@chakra-ui/icons'
 
 import { LogOut } from '@blueprintjs/icons'
+import LoadingSpinner from './LoadingSpinner'
  
 const Nav = () => {
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const [providers, setProviders] = useState(null)
@@ -53,7 +54,7 @@ const Nav = () => {
         </div>
         
         <div className='hidden md:block'>
-          {session?.user ? (
+          {status == 'authenticated' && (
             <>
               <div className='flex gap-3 md:gap-5 items-center justify-center'>
                 <Link href="/create-quote" className="flex justify-center items-center bg-quaternary text-primary rounded-full p-2 text-md poetsen-font">
@@ -76,7 +77,8 @@ const Nav = () => {
                 </Link>
               </div>
             </>
-          ) : (
+          )} 
+          {status == 'unauthenticated' && (
             <>
                 <div className='flex gap-3 md:gap-5 items-center justify-center pr-8'>
                   {providers &&
@@ -93,6 +95,15 @@ const Nav = () => {
                       </Button>
                     ))}
                 </div>
+            </>
+          )}
+          {status == 'loading' && (
+            <>
+              <div className=' pr-10'>
+                <LoadingSpinner
+                  size={'md'}
+                />
+              </div>
             </>
           )}
         </div>

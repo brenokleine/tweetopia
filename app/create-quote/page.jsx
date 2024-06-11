@@ -5,11 +5,12 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 import QuoteForm from '@/components/QuoteForm'
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 const CreateQuote = () => {
 
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   
   const [submitting, setSubmitting] = useState(false)
   
@@ -17,6 +18,11 @@ const CreateQuote = () => {
     quote: '',
     tag: '',
   })
+
+  const handleUserNotAuthenticated = () => {
+    router.push('/quotes')
+    window.alert('You must be logged in to create a quote!')
+  }
 
   const handlePostChange = (newPost) => {
     //limits the amount of characters to 500
@@ -64,14 +70,20 @@ const CreateQuote = () => {
   
     return (
       <div className='w-full flex justify-center '>
-          <QuoteForm
+          {status === 'authenticated' && (
+            <QuoteForm
               post={post}
               handlePostChange={handlePostChange}
               submitting={submitting}
               handleSubmit={createQuote}
               handleCancel={() => router.push('/quotes')}
               action={'Create'}
-          />
+            />
+          )}
+          {status === 'loading' && (
+            <LoadingSpinner/>
+          )}
+          {status === 'unauthenticated' && handleUserNotAuthenticated()}
     </div>
   )
 }
