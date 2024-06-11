@@ -54,7 +54,7 @@ const Nav = () => {
         </div>
         
         <div className='hidden md:block'>
-          {status == 'authenticated' && (
+          {status === 'authenticated' && (
             <>
               <div className='flex gap-3 md:gap-5 items-center justify-center'>
                 <Link href="/create-quote" className="flex justify-center items-center bg-quaternary text-primary rounded-full p-2 text-md poetsen-font">
@@ -78,7 +78,7 @@ const Nav = () => {
               </div>
             </>
           )} 
-          {status == 'unauthenticated' && (
+          {status === 'unauthenticated' && (
             <>
                 <div className='flex gap-3 md:gap-5 items-center justify-center pr-8'>
                   {providers &&
@@ -97,7 +97,7 @@ const Nav = () => {
                 </div>
             </>
           )}
-          {status == 'loading' && (
+          {status === 'loading' && (
             <>
               <div className=' pr-10'>
                 <LoadingSpinner
@@ -145,7 +145,7 @@ const Nav = () => {
                 }}
               >
                 <div>
-                  {session?.user ? (
+                  {status === 'authenticated' && (
                     <div className='flex items-center justify-between mb-1 mt-1'>
                       <Link
                         href={`/profile/${session?.user.id}`}
@@ -168,7 +168,8 @@ const Nav = () => {
                         />
                       </Button>
                     </div>
-                  ) : (
+                  )} 
+                  {status === 'unauthenticated' && (
                     <div className='flex items-center justify-center mb-4 mt-4'>
                       {providers &&
                         Object.values(providers).map((provider) => (
@@ -184,6 +185,15 @@ const Nav = () => {
                           </Button>
                         ))}
                     </div>
+                  )}
+                  {status === 'loading' && (
+                    <>
+                      <div className='w-full flex justify-center p-4'>
+                        <LoadingSpinner
+                          size={'lg'}
+                        />
+                      </div>
+                    </>
                   )}
                 </div>
                 <ul className="flex flex-col w-full mb-4 rounded-md bg-quaternary font-bold" onClick={onClose}>
