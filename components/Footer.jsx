@@ -12,7 +12,7 @@ const Footer = () => {
         <div className='flex gap-1'>
           <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/">Home</Link>
           <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/quotes">Quotes</Link>
-          <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="/contact">Contact</Link>
+          <Link className="transition ease-in delay-100 hover:bg-primary p-2 rounded-full" href="https://brenobernstein.com/" target='_blank'>Contact</Link>
         </div>
       </ul>
       <div className='flex justify-center items-center flex-wrap p-4'>
